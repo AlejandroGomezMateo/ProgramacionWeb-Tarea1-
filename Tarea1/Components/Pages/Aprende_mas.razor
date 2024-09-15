@@ -1,0 +1,43 @@
+@page "/aprende_mas"
+
+<PageTitle>Aprende Mas</PageTitle>
+
+<h1>Apende Mas</h1>
+
+<h3>Videos sobre Blazor</h3>
+
+<div class="row">
+
+    @foreach (var video in videos)
+    {
+        <div class="col-md-4 mb-3" >
+            <div class="card">
+                <img src="https://i.ytimg.com/vi/@video.Url/hqdefault.jpg" class="card-img-top" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@video.Titulo</h5>
+                    <p class="card-text">@video.Desc</p>
+                    <a href="https://www.youtube.com/watch?v=@video.Url" target="_blank" class="btn btn-primary">Ver video</a>
+                </div>
+            </div>
+        </div>
+ 
+    }
+</div>
+
+@code{
+
+    class Video {
+        public string Titulo {get; set;}
+        public string Url {get; set;}
+        public string Desc {get; set;}
+    }
+
+    List<Video> videos = new List<Video>{
+        new Video{Titulo="¿Que es Blazor?", Desc="Este video te explica que es Blazor.", Url="piNHZAMxVuk"},
+        new Video{Titulo="Blazor contra Angular, Vue.js y React.", Desc="Comparaciones entre tecnologias.", Url="1HNrYmubNF4"},
+        new Video{Titulo="Introducción a Blazor con C#.", Desc="Primer paso para enteder Blazor.", Url="AVqBf_2GXrA"},
+        new Video{Titulo="¿Cómo se compara Blazor con ASP.NET MVC?", Desc="Blazor vs ASP.NET", Url="KwXtrNqd3kA"},
+        new Video{Titulo="Blazor Server y Web Assembly", Desc="Mas sobre Blazor.", Url="X1a7TgkhCPY"},
+    };
+
+}
